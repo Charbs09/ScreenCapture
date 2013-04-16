@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    id="org.apache.cordova.plugin.screencapture"
+    version="1.0.0">
+
+    <name>Screen Capture</name>
+	<engines>
+		<engine name="cordova" version=">=2.3.0" />
+	</engines>
+	
+    <asset src="www/screencapture.js" target="screencapture.js" />
+   
+
+    <!-- android -->
+    <platform name="android">
+    	<source-file src="src/android/ScreenCapture.java" target-dir="src/org/apache/cordova/plugin" />
+
+        <!-- Cordova >= 2.0.0 -->
+        <config-file target="res/xml/config.xml" parent="plugins">
+            <plugin name="ScreenCapture" value="org.apache.cordova.plugin.ScreenCapture"/>
+        </config-file>
+
+    </platform>
+    <!-- ios -->
+    <platform name="ios">
+
+        <!-- Cordova >= 2.3 -->
+        <config-file target="config.xml" parent="plugins">
+            <plugin name="ScreenCapture" value="CDVScreenCapture"/>
+        </config-file>
+
+        <header-file src="CDVScreenCapture.h" />
+        <source-file src="CDVScreenCapture.m" />
+        
+    </platform>
+</plugin>
